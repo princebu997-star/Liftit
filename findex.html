@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>LiftIt - Gym • Library • Company • Personal</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        html { scroll-behavior: smooth; }
+        
+        /* Logo Animation */
+        .logo-icon {
+            position: relative;
+            display: inline-block;
+        }
+        .logo-icon i {
+            font-size: 2rem;
+            color: #2563eb;
+        }
+        .mini-icons {
+            position: absolute;
+            bottom: -8px;
+            right: -12px;
+            display: flex;
+            gap: 2px;
+        }
+        .mini-icons i {
+            font-size: 10px;
+            background: white;
+            border-radius: 50%;
+            padding: 3px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        /* Payment Strip */
+        .payment-strip {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            padding: 20px 0;
+            border-top: 1px solid #e5e7eb;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .payment-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #4b5563;
+            font-size: 14px;
+        }
+        .payment-item i {
+            font-size: 22px;
+        }
+        .divider {
+            width: 1px;
+            height: 30px;
+            background: #e5e7eb;
+        }
+        
+        @media (max-width: 768px) {
+            .payment-strip {
+                gap: 20px;
+            }
+            .divider {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+<!-- Navigation -->
+<nav class="bg-white shadow-sm fixed w-full z-50">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="flex justify-between items-center h-16">
+            <!-- LOGO WITH ALL ICONS -->
+            <div class="flex items-center space-x-3">
+                <div class="logo-icon">
+                    <i class="fas fa-dumbbell text-3xl text-blue-600"></i>
+                    <div class="mini-icons">
+                        <i class="fas fa-book text-[10px] text-green-600"></i>
+                        <i class="fas fa-building text-[10px] text-purple-600"></i>
+                        <i class="fas fa-users text-[10px] text-orange-600"></i>
+                    </div>
+                </div>
+                <div>
+                    <span class="text-xl font-bold text-blue-600">LiftIt</span>
+                    <p class="text-[8px] font-bold text-gray-500 -mt-1">GYM • LIBRARY • COMPANY • PERSONAL</p>
+                </div>
+            </div>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#modules" class="text-gray-600 hover:text-blue-600">Modules</a>
+                <a href="#about" class="text-gray-600 hover:text-blue-600">About</a>
+                <button onclick="window.location.href='login.html'" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700">Login</button>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-2xl text-gray-600" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
+        <div class="px-4 py-3 space-y-2">
+            <a href="#modules" class="block py-2 text-gray-600">Modules</a>
+            <a href="#about" class="block py-2 text-gray-600">About</a>
+            <button onclick="window.location.href='login.html'" class="w-full bg-blue-600 text-white px-4 py-2 rounded-lg mt-2">Login</button>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section with BOLD TAGLINE -->
+<section class="pt-20 pb-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+            <div>
+                <!-- BOLD TAGLINE -->
+                <h1 class="text-4xl md:text-5xl font-bold mb-4 leading-tight">
+                    <span class="block">LiftIt & Drop</span>
+                    <span class="block text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-red-300">
+                        Everything F***ing Things
+                    </span>
+                </h1>
+                <p class="text-xl mb-6 opacity-90">Gym • Library • Company • Personal — All in One Platform</p>
+                <div class="flex flex-wrap gap-4">
+                    <button onclick="window.location.href='login.html'" class="bg-white text-blue-600 px-6 py-3 rounded-lg font-bold hover:shadow-lg">Start Free Trial</button>
+                    <button class="border-2 border-white text-white px-6 py-3 rounded-lg font-bold hover:bg-white hover:text-blue-600">Watch Demo</button>
+                </div>
+            </div>
+            <div class="hidden md:block">
+                <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="rounded-2xl shadow-2xl">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- STATS BADGES HATA DIYE - Direct About Us section -->
+
+<!-- ABOUT US SECTION - GLOBAL VERSION (INDIA HATAYA) -->
+<section id="about" class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-4">Why LiftIt?</h2>
+        <p class="text-center text-gray-600 mb-12">One Platform, Four Solutions — Built for Businesses Worldwide</p>
+        
+        <div class="space-y-8">
+            <!-- Our Story -->
+            <div class="text-center">
+                <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-rocket text-3xl text-blue-600"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Our Story</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    LiftIt was born in 2024 when we realized that small business owners — whether running a gym, library, or small company — were struggling with complicated, expensive, or ineffective management software. Some were too costly, some too complex, and some simply didn't work.
+                </p>
+                <p class="text-gray-600 leading-relaxed mt-3">
+                    So we asked ourselves: why not build a platform that <span class="font-bold text-blue-600">works for everyone, everywhere</span>? Simple, affordable, and accessible to businesses across the globe. Today, thousands of business owners trust LiftIt to manage their operations smoothly.
+                </p>
+            </div>
+            
+            <!-- What We Offer -->
+            <div class="grid md:grid-cols-2 gap-6 mt-8">
+                <div class="bg-blue-50 p-6 rounded-xl">
+                    <i class="fas fa-dumbbell text-2xl text-blue-600 mb-3"></i>
+                    <h4 class="font-bold mb-2">🏋️ For Gym Owners</h4>
+                    <p class="text-sm text-gray-600">Track members, manage fees, create workout plans, monitor attendance — all from one dashboard. No more paper registers or messy spreadsheets.</p>
+                </div>
+                <div class="bg-green-50 p-6 rounded-xl">
+                    <i class="fas fa-book text-2xl text-green-600 mb-3"></i>
+                    <h4 class="font-bold mb-2">📚 For Library Owners</h4>
+                    <p class="text-sm text-gray-600">Manage books, track students, calculate late fees automatically, and monitor reading progress. Library management has never been this easy.</p>
+                </div>
+                <div class="bg-purple-50 p-6 rounded-xl">
+                    <i class="fas fa-building text-2xl text-purple-600 mb-3"></i>
+                    <h4 class="font-bold mb-2">🏢 For Company Owners</h4>
+                    <p class="text-sm text-gray-600">Perfect for small businesses with 15-50 employees. Track attendance, manage salaries, handle payroll, and generate reports with just one click.</p>
+                </div>
+                <div class="bg-orange-50 p-6 rounded-xl">
+                    <i class="fas fa-users text-2xl text-orange-600 mb-3"></i>
+                    <h4 class="font-bold mb-2">👥 For Personal Use</h4>
+                    <p class="text-sm text-gray-600">Track family fitness goals, manage daily expenses, monitor health metrics, and keep everyone motivated. A healthier family, a happier life.</p>
+                </div>
+            </div>
+            
+            <!-- Why Trust Us -->
+            <div class="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8 rounded-2xl mt-8">
+                <h3 class="text-xl font-bold text-center mb-6">Why Trust LiftIt?</h3>
+                <div class="grid md:grid-cols-3 gap-4 text-center">
+                    <div>
+                        <div class="text-3xl font-bold text-yellow-300">5,000+</div>
+                        <p class="text-sm text-white/80">Happy Business Owners</p>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold text-yellow-300">4.9★</div>
+                        <p class="text-sm text-white/80">User Rating</p>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold text-yellow-300">24/7</div>
+                        <p class="text-sm text-white/80">Global Support</p>
+                    </div>
+                </div>
+                <p class="text-center text-white/80 text-sm mt-6">
+                    We're business owners ourselves. We understand your challenges because we've faced them too. That's why we built LiftIt — for people like us, by people like us.
+                </p>
+            </div>
+            
+            <!-- What Makes Us Different -->
+            <div class="grid md:grid-cols-3 gap-4 mt-8">
+                <div class="text-center p-4">
+                    <i class="fas fa-infinity text-2xl text-blue-600 mb-2"></i>
+                    <h4 class="font-bold">Unlimited Members</h4>
+                    <p class="text-xs text-gray-500">No restrictions, no extra charges</p>
+                </div>
+                <div class="text-center p-4">
+                    <i class="fas fa-globe text-2xl text-green-600 mb-2"></i>
+                    <h4 class="font-bold">Global Platform</h4>
+                    <p class="text-xs text-gray-500">Used in 15+ countries</p>
+                </div>
+                <div class="text-center p-4">
+                    <i class="fas fa-headset text-2xl text-purple-600 mb-2"></i>
+                    <h4 class="font-bold">24/7 Support</h4>
+                    <p class="text-xs text-gray-500">We're always here to help</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Modules Section -->
+<section id="modules" class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12">Our Modules</h2>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Gym Module -->
+            <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition">
+                <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="w-full h-48 object-cover">
+                <div class="p-5">
+                    <h3 class="font-bold text-lg mb-2">Gym Module</h3>
+                    <p class="text-gray-600 text-sm mb-3">Member tracking, workouts, fees</p>
+                    <p class="text-sm font-semibold text-blue-600 mb-3">Starting ₹249/month</p>
+                    <button class="w-full bg-blue-600 text-white py-2 rounded-lg text-sm">Choose Plan →</button>
+                </div>
+            </div>
+            
+            <!-- Library Module -->
+            <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition">
+                <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="w-full h-48 object-cover">
+                <div class="p-5">
+                    <h3 class="font-bold text-lg mb-2">Library Module</h3>
+                    <p class="text-gray-600 text-sm mb-3">Books, students, late fees</p>
+                    <p class="text-sm font-semibold text-green-600 mb-3">Starting ₹249/month</p>
+                    <button class="w-full bg-green-600 text-white py-2 rounded-lg text-sm">Choose Plan →</button>
+                </div>
+            </div>
+            
+            <!-- Company Module -->
+            <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition">
+                <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="w-full h-48 object-cover">
+                <div class="p-5">
+                    <h3 class="font-bold text-lg mb-2">Company Module</h3>
+                    <p class="text-gray-600 text-sm mb-3">Employees, salary, attendance</p>
+                    <p class="text-sm font-semibold text-purple-600 mb-3">Starting ₹249/month</p>
+                    <button class="w-full bg-purple-600 text-white py-2 rounded-lg text-sm">Choose Plan →</button>
+                </div>
+            </div>
+            
+            <!-- Personal Module -->
+            <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition">
+                <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="w-full h-48 object-cover">
+                <div class="p-5">
+                    <h3 class="font-bold text-lg mb-2">Personal Module</h3>
+                    <p class="text-gray-600 text-sm mb-3">Family, fitness, expenses</p>
+                    <p class="text-sm font-semibold text-orange-600 mb-3">Starting ₹249/month</p>
+                    <button class="w-full bg-orange-600 text-white py-2 rounded-lg text-sm">Choose Plan →</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials -->
+<section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12">What Our Users Say</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="bg-gray-50 p-6 rounded-xl">
+                <div class="flex items-center mb-3">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-10 h-10 rounded-full mr-3">
+                    <div>
+                        <p class="font-bold">Rahul Sharma</p>
+                        <p class="text-xs text-gray-500">Gym Owner, Mumbai</p>
+                    </div>
+                </div>
+                <p class="text-gray-600 text-sm">"Best decision for my gym! Member tracking is so easy now."</p>
+                <div class="text-yellow-400 mt-2">★★★★★</div>
+            </div>
+            <div class="bg-gray-50 p-6 rounded-xl">
+                <div class="flex items-center mb-3">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" class="w-10 h-10 rounded-full mr-3">
+                    <div>
+                        <p class="font-bold">Priya Patel</p>
+                        <p class="text-xs text-gray-500">Library Owner, Delhi</p>
+                    </div>
+                </div>
+                <p class="text-gray-600 text-sm">"Students ki attendance aur fees track karna ab aasan hai."</p>
+                <div class="text-yellow-400 mt-2">★★★★★</div>
+            </div>
+            <div class="bg-gray-50 p-6 rounded-xl">
+                <div class="flex items-center mb-3">
+                    <img src="https://randomuser.me/api/portraits/men/45.jpg" class="w-10 h-10 rounded-full mr-3">
+                    <div>
+                        <p class="font-bold">Amit Kumar</p>
+                        <p class="text-xs text-gray-500">Company Owner, Ahmedabad</p>
+                    </div>
+                </div>
+                <p class="text-gray-600 text-sm">"Salary management aur attendance tracking bohot smooth hai."</p>
+                <div class="text-yellow-400 mt-2">★★★★★</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Payment Badges -->
+<section class="py-8 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="payment-strip">
+            <div class="payment-item"><i class="fas fa-mobile-alt text-green-600"></i> <span>UPI</span> <small>GPay, PhonePe</small></div>
+            <div class="divider"></div>
+            <div class="payment-item"><i class="fab fa-cc-visa text-blue-600"></i> <span>VISA</span> <small>Credit/Debit</small></div>
+            <div class="divider"></div>
+            <div class="payment-item"><i class="fab fa-cc-mastercard text-red-600"></i> <span>Mastercard</span> <small>Credit/Debit</small></div>
+            <div class="divider"></div>
+            <div class="payment-item"><i class="fas fa-credit-card text-orange-600"></i> <span>RuPay</span> <small>Indian Cards</small></div>
+            <div class="divider"></div>
+            <div class="payment-item"><i class="fas fa-university text-purple-600"></i> <span>Net Banking</span> <small>All Banks</small></div>
+            <div class="divider"></div>
+            <div class="payment-item"><i class="fas fa-lock text-emerald-600"></i> <span>256-bit</span> <small>Encrypted</small></div>
+        </div>
+        <div class="text-center mt-4 text-xs text-gray-500">
+            <i class="fas fa-shield-alt text-green-600 mr-1"></i> 100% Secure | SSL Encrypted | PCI Compliant
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-white py-8">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="flex flex-wrap justify-center gap-6 mb-6">
+            <a href="about.html" class="text-gray-400 hover:text-white text-sm">About</a>
+            <a href="faq.html" class="text-gray-400 hover:text-white text-sm">FAQ</a>
+            <a href="terms.html" class="text-gray-400 hover:text-white text-sm">Terms</a>
+            <a href="privacy.html" class="text-gray-400 hover:text-white text-sm">Privacy</a>
+            <a href="refund.html" class="text-gray-400 hover:text-white text-sm">Refund</a>
+        </div>
+        <p class="text-center text-gray-600 text-xs">© 2024 LiftIt. Gym • Library • Company • Personal — All in One</p>
+    </div>
+</footer>
+
+<script>
+    function toggleMobileMenu() {
+        document.getElementById('mobileMenu').classList.toggle('hidden');
+    }
+</script>
+
+</body>
+</html>
