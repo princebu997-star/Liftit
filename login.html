@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LiftIt - Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .login-card { background: white; border-radius: 30px; box-shadow: 0 20px 60px rgba(0,0,0,0.1); max-width: 450px; width: 100%; }
+        .tab-active { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-600 to-purple-600 min-h-screen flex items-center justify-center p-4">
+    <div class="login-card">
+        <div class="bg-gradient-to-r from-blue-600 to-purple-600 p-6 text-center">
+            <i class="fas fa-dumbbell text-5xl text-white mb-2"></i>
+            <h2 class="text-2xl font-bold text-white">Welcome to LiftIt</h2>
+        </div>
+
+        <div class="flex border-b">
+            <button onclick="showTab('owner')" id="tabOwner" class="flex-1 py-4 font-semibold tab-active">Owner</button>
+            <button onclick="showTab('member')" id="tabMember" class="flex-1 py-4 font-semibold">Member</button>
+            <button onclick="showTab('admin')" id="tabAdmin" class="flex-1 py-4 font-semibold">Admin</button>
+        </div>
+
+        <!-- Owner Login -->
+        <div id="ownerLogin" class="p-6 space-y-4">
+            <input type="email" id="ownerEmail" placeholder="Email" class="w-full px-4 py-3 border rounded-xl">
+            <input type="password" id="ownerPassword" placeholder="Password" class="w-full px-4 py-3 border rounded-xl">
+            <button onclick="ownerLogin()" class="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-xl font-bold">Login</button>
+        </div>
+
+        <!-- Member Login -->
+        <div id="memberLogin" class="p-6 space-y-4 hidden">
+            <input type="tel" id="memberMobile" placeholder="Mobile Number" class="w-full px-4 py-3 border rounded-xl">
+            <input type="text" id="memberCode" placeholder="Owner Code" class="w-full px-4 py-3 border rounded-xl">
+            <button onclick="memberLogin()" class="w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white py-3 rounded-xl font-bold">Login</button>
+        </div>
+
+        <!-- Admin Login -->
+        <div id="adminLogin" class="p-6 space-y-4 hidden">
+            <input type="email" id="adminEmail" placeholder="Admin Email" value="pal00prince27112005@gmail.com" class="w-full px-4 py-3 border rounded-xl bg-gray-50">
+            <input type="password" id="adminPassword" placeholder="Password" value="Prince@Megha14" class="w-full px-4 py-3 border rounded-xl bg-gray-50">
+            <button onclick="adminLogin()" class="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-3 rounded-xl font-bold">Admin Access</button>
+        </div>
+    </div>
+
+    <script>
+        const Database = {
+            owners: [
+                { email: 'rahul@gym.com', password: 'Rahul@123', type: 'owner' },
+                { email: 'priya@library.com', password: 'Priya@123', type: 'owner' }
+            ],
+            members: [
+                { mobile: '9876543210', code: 'GYM001' }
+            ],
+            admin: { email: 'pal00prince27112005@gmail.com', password: 'Prince@Megha14' }
+        };
+
+        function showTab(tab) {
+            document.querySelectorAll('[id$="Login"]').forEach(el => el.classList.add('hidden'));
+            document.getElementById(tab + 'Login').classList.remove('hidden');
+            document.querySelectorAll('.tab-active').forEach(el => el.classList.remove('tab-active'));
+            document.getElementById('tab' + tab.charAt(0).toUpperCase() + tab.slice(1)).classList.add('tab-active');
+        }
+
+        function ownerLogin() {
+            const email = document.getElementById('ownerEmail').value;
+            const pass = document.getElementById('ownerPassword').value;
+            if(Database.owners.find(o => o.email === email && o.password === pass)) {
+                alert('Login successful! Redirecting...');
+                window.location.href = 'owner-dashboard.html';
+            } else alert('Invalid credentials');
+        }
+
+        function memberLogin() {
+            const mobile = document.getElementById('memberMobile').value;
+            const code = document.getElementById('memberCode').value;
+            if(Database.members.find(m => m.mobile === mobile && m.code === code)) {
+                alert('Login successful! Redirecting...');
+                window.location.href = 'member-dashboard.html';
+            } else alert('Invalid credentials');
+        }
+
+        function adminLogin() {
+            const email = document.getElementById('adminEmail').value;
+            const pass = document.getElementById('adminPassword').value;
+            if(email === Database.admin.email && pass === Database.admin.password) {
+                alert('Admin login successful! Redirecting...');
+                window.location.href = 'admin-dashboard.html';
+            } else alert('Invalid admin credentials');
+        }
+    </script>
+</body>
+</html>

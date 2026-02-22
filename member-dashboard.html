@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LiftIt - Member Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-gray-100">
+    <nav class="bg-gradient-to-r from-green-600 to-emerald-600 text-white p-4">
+        <div class="max-w-7xl mx-auto flex justify-between">
+            <div class="flex items-center">
+                <i class="fas fa-user text-2xl mr-2"></i>
+                <span class="text-xl font-bold">Member Dashboard</span>
+            </div>
+            <button onclick="window.location.href='login.html'" class="bg-white text-green-600 px-4 py-2 rounded-lg">Logout</button>
+        </div>
+    </nav>
+
+    <div class="max-w-7xl mx-auto p-6">
+        <div class="bg-white rounded-xl shadow p-6 mb-6">
+            <h3 class="text-xl font-bold mb-4">Your Membership</h3>
+            <p>Plan: Monthly</p>
+            <p>Valid Till: 15 Apr 2024</p>
+            <p>Status: <span class="bg-green-100 text-green-600 px-2 py-1 rounded">Active</span></p>
+        </div>
+
+        <div class="bg-white rounded-xl shadow p-6">
+            <h3 class="text-xl font-bold mb-4">Payment History</h3>
+            <table class="w-full">
+                <thead class="bg-gray-50">
+                    <tr><th class="p-3">Date</th><th>Amount</th><th>Status</th></tr>
+                </thead>
+                <tbody>
+                    <tr class="border-b"><td class="p-3">15 Mar 2024</td><td>₹249</td><td><span class="bg-green-100 text-green-600 px-2 py-1 rounded">Paid</span></td></tr>
+                    <tr class="border-b"><td class="p-3">15 Feb 2024</td><td>₹249</td><td><span class="bg-green-100 text-green-600 px-2 py-1 rounded">Paid</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
